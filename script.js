@@ -10,6 +10,7 @@ window.onload = function () {
     function cargabanderas(banderas) {
         var arr = Object.entries(banderas);
         let cont = 1;
+        let total = document.querySelector(".origen").children.length;
         while (cont <= 8) {
             let num = Math.floor(Math.random() * (arr.length - 0 + 1) + (0));
             let codigo = arr[num][0];
@@ -53,9 +54,7 @@ window.onload = function () {
 
 
     function dragstart(e) {
-        this.parentElement.addEventListener("dragover", dragover);
-        this.parentElement.style.border = "solid 2 px black";
-        this.parentElement.addEventListener("drop", drop);
+        this.classList.add("gris");
         e.dataTransfer.setData("text/plain", this.id);
 
     }
@@ -80,6 +79,7 @@ window.onload = function () {
 
     }
     function dragend(e) {
+        this.classList.remove("gris");
 
     }
     function dragover(e) {
