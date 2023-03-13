@@ -1,6 +1,7 @@
 window.onload = function () {
     loaduser();
     var elem = "";
+
     async function loaduser() {
         const res = await fetch("https://flagcdn.com/es/codes.json");
         const banderas = await res.json();
@@ -54,6 +55,15 @@ window.onload = function () {
 
 
     function dragstart(e) {
+        for (const caja of destino.children) {
+            if (caja.children.length == 1) {
+                caja.addEventListener("dragover", dragover);
+                caja.addEventListener("dragleave", dragleave);
+                caja.addEventListener("drop", drop);
+                caja.addEventListener("dragenter", dragenter);
+            }
+        }
+
         this.classList.add("gris");
         e.dataTransfer.setData("text/plain", this.id);
 
@@ -92,6 +102,8 @@ window.onload = function () {
     }
 
     function drop(e) {
+
+
 
         this.classList.remove("bordedot");
         console.log("Drop");
