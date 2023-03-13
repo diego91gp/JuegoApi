@@ -1,5 +1,6 @@
 window.onload = function () {
     loaduser();
+    var elem = "";
     async function loaduser() {
         const res = await fetch("https://flagcdn.com/es/codes.json");
         const banderas = await res.json();
@@ -36,15 +37,14 @@ window.onload = function () {
     document.querySelector(".reinicia").addEventListener("click", reini);
 
     for (const foto of origen.children) {
-        foto.addEventListener('touchmove', dragstart);
-        box.addEventListener('touchend', dragend);
+        foto.addEventListener("touchstart", guarda);
         foto.addEventListener("dragstart", dragstart);
         foto.addEventListener("dragend", dragend);
 
     }
 
     for (const caja of destino.children) {
-
+        caja.addEventListener("touchstart", guarda);
         caja.addEventListener("dragover", dragover);
         caja.addEventListener("dragleave", dragleave);
         caja.addEventListener("drop", drop);
@@ -58,6 +58,21 @@ window.onload = function () {
         this.parentElement.addEventListener("drop", drop);
         e.dataTransfer.setData("text/plain", this.id);
 
+    }
+    function guarda(e) {
+        if (elem != "" && e.target.id.includes("desti")) {
+            elem.classList.remove("gris");
+            e.target.appendChild(elem.parentElement);
+
+            elem = "";
+        } else {
+            if (e.target.id.includes("fot"))
+                if (elem.classList == "gris") {
+                    elem.classList.remove("gris");
+                }
+            e.target.classList.add("gris");
+            elem = e.target;
+        }
     }
 
     function dragenter(e) {
