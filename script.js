@@ -5,6 +5,7 @@ window.onload = function () {
         const banderas = await res.json();
         cargabanderas(banderas);
     }
+
     function cargabanderas(banderas) {
         var arr = Object.entries(banderas);
         let cont = 1;
@@ -35,7 +36,8 @@ window.onload = function () {
     document.querySelector(".reinicia").addEventListener("click", reini);
 
     for (const foto of origen.children) {
-
+        foto.addEventListener('touchmove', dragstart);
+        box.addEventListener('touchend', dragend);
         foto.addEventListener("dragstart", dragstart);
         foto.addEventListener("dragend", dragend);
 
