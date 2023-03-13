@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+    <style>
+        body {
+            padding-top: 100px;
+            ;
+            background-color: antiquewhite;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            width: 100%;
+            position: absolute;
+            top: 0;
+        }
+
+
+        .bordedot {
+            border: dotted 4px purple !important;
+        }
+
+        .boton {
+            padding: 30px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .origen,
+        .destino {
+            width: 700px;
+            margin: 50px 50px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .origen div,
+        .destino div {
+            width: 250px;
+            height: 150px;
+            cursor: pointer;
+            ;
+        }
+
+
+        .destino>div {
+            position: relative;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: solid black 1px;
+        }
+
+        span {
+            text-align: center;
+            opacity: 0.5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            text-transform: uppercase;
+            font-size: 1.5em;
+            background-color: white;
+            position: absolute;
+
+            z-index: -1;
+        }
+
+
+        @media(max-width:500px) {
+
+            .origen,
+            .destino {
+                flex-direction: column;
+                width: 150px;
+                margin: 0 0;
+            }
+
+            .origen div,
+            .destino div {
+                width: 150px;
+                height: 80px;
+                cursor: pointer;
+                ;
+            }
+
+            span {
+                font-size: 0.7em;
+
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Juego de las Banderas de Diego</h1>
+
+    <div class="origen">
+        <div draggable="true" id="foto1"><img id="fot1" src="" alt=""></div>
+        <div draggable="true" id="foto2"><img id="fot2" src="" alt=""></div>
+        <div draggable="true" id="foto3"><img id="fot3" src="" alt=""></div>
+        <div draggable="true" id="foto4"><img id="fot4" src="" alt=""></div>
+        <div draggable="true" id="foto5"><img id="fot5" src="" alt=""></div>
+        <div draggable="true" id="foto6"><img id="fot6" src="" alt=""></div>
+        <div draggable="true" id="foto7"><img id="fot7" src="" alt=""></div>
+        <div draggable="true" id="foto8"><img id="fot8" src="" alt=""></div>
+    </div>
+
+    <div class="destino">
+        <div id="destino1"></div>
+        <div id="destino2"></div>
+        <div id="destino3"></div>
+        <div id="destino4"></div>
+        <div id="destino5"></div>
+        <div id="destino6"></div>
+        <div id="destino7"></div>
+        <div id="destino8"></div>
+    </div>
+
+    <div class="boton"><button>Comprobar</button>
+        <button class="reinicia">Reinicia</button>
+    </div>
+
+
+</body>
+
+</html>
